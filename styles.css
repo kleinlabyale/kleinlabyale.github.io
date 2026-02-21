@@ -1089,3 +1089,46 @@ a {
   .pi-avatar { display: none; }
   .section { padding: 4rem 0; }
 }
+/* --- NEW MODERN STYLES --- */
+:root {
+  --yale-blue: #0f4d92;
+  --accent-cyan: #00b4d8;
+  --text-main: #2b2d42;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--yale-blue);
+}
+
+.eyebrow {
+  color: var(--accent-cyan);
+}
+
+button, .cta-button {
+  background-color: var(--yale-blue);
+  color: var(--white);
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .cta-button:hover {
+  background-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+li {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+  border-left: 4px solid var(--yale-blue);
+}
