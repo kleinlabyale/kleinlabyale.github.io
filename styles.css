@@ -1,18 +1,31 @@
 :root {
-  --paper: #f6f3ee;
-  --ink: #10243e;
-  --ink-soft: #2e4664;
-  --line: #d4d7de;
-  --brand: #134e8f;
-  --brand-soft: #3b7fc6;
-  --accent: #ef9d34;
-  --accent-soft: #ffd39d;
-  --mint: #8bd7c2;
-  --card: #ffffff;
+  /* Backgrounds shift from light to dark */
+  --paper: #0a1424;       /* A very dark, rich navy instead of off-white */
+  --card: #14253d;        /* Slightly lighter than paper to make cards pop */
+  
+  /* Text (Ink) shifts from dark to light */
+  --ink: #f6f3ee;         /* Using your old --paper color for main text! */
+  --ink-soft: #94a3b8;    /* A soft blue-gray for secondary text */
+  
+  /* Borders and lines */
+  --line: #2e4664;        /* Using your old --ink-soft for subtle borders */
+  
+  /* Brand colors (often need to be lighter in dark mode for contrast) */
+  --brand: #3b7fc6;       /* Flipped your brand colors so the brighter blue is primary */
+  --brand-soft: #134e8f;  /* Used the darker blue for subtle backgrounds/hovers */
+  
+  /* Accents (These usually pop beautifully on dark backgrounds) */
+  --accent: #ef9d34;      /* Kept the exact same orange! */
+  --accent-soft: #7a4a0f; /* Made the soft accent darker so text can sit on it */
+  --mint: #8bd7c2;        /* Kept the exact same mint! */
+  
+  /* Structural (Keep these exactly the same) */
   --radius-lg: 20px;
   --radius-md: 14px;
-  --shadow: 0 20px 45px rgba(16, 36, 62, 0.12);
   --max: 1120px;
+  
+  /* Shadows must be darker and pure black to be visible on dark backgrounds */
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.5); 
 }
 
 * {
