@@ -1,31 +1,18 @@
 :root {
-  /* Backgrounds: True black mixed with deep slate */
-  --paper: #090c10;       /* A very dark, almost-black slate for the main background */
-  --card: #151b23;        /* A slightly lighter dark-slate for cards to create depth */
-  
-  /* Text: Crisp cool grays */
-  --ink: #e2e8f0;         /* A very light slate-gray for highly readable main text */
-  --ink-soft: #8b949e;    /* A muted slate-gray for secondary text */
-  
-  /* Borders: Subtle separation */
-  --line: #30363d;        /* A medium slate color for borders and dividers */
-  
-  /* Brand: Cool, piercing blues */
-  --brand: #4493f8;       /* A bright, legible slate-blue that pops on dark backgrounds */
-  --brand-soft: #1f3a5f;  /* A muted, deep navy blue for hover states or soft backgrounds */
-  
-  /* Accents: Shifting from orange to sleek grays/steels */
-  --accent: #94a3b8;      /* A cool steel gray for secondary highlights */
-  --accent-soft: #1e293b; /* A very dark slate for subtle accent backgrounds */
-  --mint: #38bdf8;        /* Replaced the green-mint with an icy cyan/light blue */
-  
-  /* Structural (Unchanged) */
+  --paper: #0f0f14;
+  --ink: #e8e6f0;
+  --ink-soft: #a09ab8;
+  --line: #2a2735;
+  --brand: #7c5cbf;
+  --brand-soft: #a484e0;
+  --accent: #4f8ef7;
+  --accent-soft: #96bfff;
+  --mint: #5b7fa6;
+  --card: #17151f;
   --radius-lg: 20px;
   --radius-md: 14px;
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
   --max: 1120px;
-  
-  /* Shadows: Deep black to create contrast against the slate cards */
-  --shadow: 0 20px 45px rgba(0, 0, 0, 0.6); 
 }
 
 * {
