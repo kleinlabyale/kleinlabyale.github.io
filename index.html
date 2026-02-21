@@ -1,1082 +1,371 @@
-:root {
-  --paper: #0f0f14;
-  --ink: #e8e6f0;
-  --ink-soft: #a09ab8;
-  --line: #2a2735;
-  --brand: #7c5cbf;
-  --brand-soft: #a484e0;
-  --accent: #4f8ef7;
-  --accent-soft: #96bfff;
-  --mint: #5b7fa6;
-  --card: #17151f;
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-  --max: 1120px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
-  color: var(--ink);
-  background:
-    radial-gradient(ellipse at 20% 25%, rgba(124, 92, 191, 0.2) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 10%, rgba(79, 142, 247, 0.15) 0%, transparent 50%),
-    linear-gradient(160deg, #12101e 0%, var(--paper) 100%);
-  line-height: 1.6;
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-}
-
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-  z-index: 1000;
-  background: var(--card);
-  color: var(--ink);
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-}
-
-.container {
-  width: min(var(--max), 92vw);
-  margin-inline: auto;
-}
-
-.section {
-  padding: 4.8rem 0;
-}
-
-.section[id] {
-  scroll-margin-top: 84px;
-}
-
-.section-alt {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(79, 142, 247, 0.05));
-}
-
-.section-head h2,
-.hero h1,
-.cta h2 {
-  margin: 0;
-  font-family: "Fraunces", "Times New Roman", serif;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.section-head {
-  margin-bottom: 2rem;
-}
-
-.section-head h2 {
-  font-size: clamp(1.9rem, 2.8vw, 2.7rem);
-  margin-bottom: 0.65rem;
-}
-
-.section-head p {
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-.eyebrow {
-  margin: 0 0 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-weight: 700;
-  font-size: 0.74rem;
-  color: var(--brand-soft);
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  border-bottom: 1px solid rgba(42, 39, 53, 0.8);
-  background: rgba(15, 15, 20, 0.88);
-  backdrop-filter: blur(10px);
-}
-
-.nav {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.brand-logo {
-  height: 42px;
-  width: auto;
-  display: block;
-}
-
-.brand-text {
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--ink-soft);
-  font-weight: 500;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible {
-  color: var(--brand-soft);
-}
-
-.menu-toggle {
-  display: none;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--card);
-  padding: 0.5rem 0.7rem;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.menu-icon {
-  width: 15px;
-  height: 2px;
-  background: currentColor;
-  position: relative;
-}
-
-.menu-icon::before,
-.menu-icon::after {
-  content: "";
-  width: 15px;
-  height: 2px;
-  background: currentColor;
-  position: absolute;
-  left: 0;
-}
-
-.menu-icon::before {
-  top: -5px;
-}
-
-.menu-icon::after {
-  top: 5px;
-}
-
-.hero {
-  padding: 4.25rem 0 4rem;
-}
-
-@media (min-width: 931px) {
-  .hero {
-    min-height: calc(100vh - 72px);
-    min-height: calc(100dvh - 72px);
-  }
-}
-
-.hero-grid {
-  display: grid;
-  column-gap: 2rem;
-  row-gap: 2.25rem;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: clamp(2.3rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-}
-
-.hero-lab-name {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin: 0 0 1.8rem;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  max-width: none;
-}
-
-.hero-welcome-logo {
-  width: min(100%, 980px);
-  height: auto;
-  display: block;
-}
-
-.lead {
-  color: var(--ink-soft);
-  margin: 0 0 1.6rem;
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
-  max-width: 54ch;
-}
-
-.hero-affiliations {
-  margin: 0 0 1.4rem;
-  color: var(--ink-soft);
-  display: grid;
-  gap: 0.22rem;
-}
-
-.hero-affiliations p {
-  margin: 0;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.visit-counter {
-  margin: 0.85rem 0 0;
-  line-height: 0;
-}
-
-.visit-counter-badge {
-  height: 22px;
-  width: auto;
-  display: inline-block;
-  border-radius: 999px;
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 0.72rem 1.15rem;
-  font-weight: 700;
-  border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover,
-.btn:focus-visible {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  color: #fff;
-  background: linear-gradient(120deg, var(--brand), var(--brand-soft));
-  box-shadow: 0 12px 24px rgba(124, 92, 191, 0.35);
-}
-
-.btn-secondary {
-  color: var(--ink);
-  background: var(--card);
-  border-color: var(--line);
-}
-
-.hero-graphic {
-  position: relative;
-  height: 390px;
-  max-width: 620px;
-  width: 100%;
-  justify-self: end;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  isolation: isolate;
-  background: #1a1a2e;
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  filter: saturate(0.95) contrast(1.05);
-  cursor: pointer;
-}
-
-.hero-graphic::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, rgba(8, 24, 46, 0.24), rgba(8, 24, 46, 0.1) 45%, rgba(8, 24, 46, 0.26));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-audio-toggle {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  z-index: 3;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(16, 36, 62, 0.62);
-  color: #fff;
-  border-radius: 999px;
-  padding: 0.42rem 0.78rem;
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.hero-audio-toggle:hover,
-.hero-audio-toggle:focus-visible {
-  background: rgba(16, 36, 62, 0.8);
-}
-
-.hero-video-caption {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.85rem;
-  margin: 0;
-  z-index: 3;
-  color: #fff;
-  text-align: center;
-  font-size: clamp(0.9rem, 1.15vw, 1rem);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-}
-
-.stats {
-  padding-top: 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.stat-card {
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1.1rem;
-  text-align: center;
-}
-
-.stat-value {
-  margin: 0;
-  font-family: "Fraunces", "Times New Roman", serif;
-  font-size: clamp(1.8rem, 2.9vw, 2.7rem);
-  color: var(--brand-soft);
-}
-
-.stat-label {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-}
-
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.research-card,
-.person-card,
-.pub-list li,
-.news-item,
-.pi-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.research-card {
-  padding: 1.2rem;
-}
-
-.research-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  font-family: "Fraunces", "Times New Roman", serif;
-  font-size: 1.28rem;
-  color: var(--brand-soft);
-}
-
-.research-card p {
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-.research-card a {
-  color: var(--accent-soft);
-}
-
-.research-links {
-  margin: 0.65rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-.instagram-section {
-  padding-top: 1.2rem;
-}
-
-.ig-embed {
-  min-height: 220px;
-}
-
-.ig-help {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.94rem;
-}
-
-.ig-help code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.9em;
-  background: rgba(124, 92, 191, 0.15);
-  border-radius: 6px;
-  padding: 0.1rem 0.28rem;
-}
-
-.ig-slider {
-  position: relative;
-}
-
-.ig-viewport {
-  overflow: hidden;
-  border-radius: 18px;
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
-}
-
-.ig-track {
-  display: flex;
-  transition: transform 0.35s ease;
-  will-change: transform;
-}
-
-.ig-page {
-  min-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.18rem;
-  background: rgba(42, 39, 53, 0.5);
-}
-
-.ig-tile {
-  position: relative;
-  display: block;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  text-decoration: none;
-  background: #1e1b2e;
-}
-
-.ig-media-shell {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.ig-embed-frame {
-  border: 0;
-  position: absolute;
-  left: 50%;
-  top: -24%;
-  width: 136%;
-  height: 170%;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.ig-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 0.8rem;
-  display: flex;
-  align-items: end;
-  background: linear-gradient(180deg, rgba(5, 14, 28, 0.04), rgba(5, 14, 28, 0.62) 58%, rgba(5, 14, 28, 0.78));
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.ig-caption {
-  margin: 0;
-  color: #fff;
-  font-size: 0.82rem;
-  line-height: 1.36;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.ig-tile:hover .ig-overlay,
-.ig-tile:focus-visible .ig-overlay {
-  opacity: 1;
-}
-
-.ig-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  appearance: none;
-  border: 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(10, 26, 46, 0.58);
-  color: #fff;
-  font-size: 2.05rem;
-  line-height: 1;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  z-index: 2;
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.ig-nav:hover,
-.ig-nav:focus-visible {
-  background: rgba(10, 26, 46, 0.78);
-  outline: none;
-}
-
-.ig-nav-prev {
-  left: 0.65rem;
-}
-
-.ig-nav-next {
-  right: 0.65rem;
-}
-
-.ig-nav:disabled {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.ig-slider.is-static .ig-nav {
-  display: none;
-}
-
-.ig-account {
-  margin: 1rem 0 0;
-}
-
-.pi-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  margin-bottom: 1.1rem;
-  padding: 1.1rem;
-  align-items: start;
-}
-
-.pi-avatar {
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(160deg, var(--brand), var(--accent));
-}
-
-.pi-card h3 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.pi-role {
-  margin: 0.2rem 0 0.7rem;
-  color: var(--brand-soft);
-  font-weight: 600;
-}
-
-.pi-links {
-  margin-top: 0.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.pi-links a {
-  text-decoration: none;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.35rem 0.7rem;
-  font-size: 0.84rem;
-  color: var(--ink-soft);
-  background: var(--card);
-}
-
-.pi-links a:hover,
-.pi-links a:focus-visible {
-  color: var(--brand-soft);
-  border-color: rgba(124, 92, 191, 0.4);
-}
-
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.person-card {
-  padding: 1rem;
-}
-
-.person-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  background: linear-gradient(140deg, var(--brand), var(--accent));
-}
-
-.person-card h3 {
-  margin: 0;
-  font-size: 1.08rem;
-}
-
-.person-role {
-  margin: 0.22rem 0 0.5rem;
-  color: var(--brand-soft);
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
-.person-focus {
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-.person-link {
-  margin-top: 0.7rem;
-  display: inline-block;
-  color: var(--accent-soft);
-  text-decoration-thickness: 2px;
-}
-
-.person-focus-link {
-  display: inline-block;
-  color: var(--ink-soft);
-  text-decoration-thickness: 2px;
-}
-
-.person-focus-link:hover,
-.person-focus-link:focus-visible {
-  color: var(--brand-soft);
-}
-
-.alumni-panel {
-  margin-top: 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1rem;
-}
-
-.alumni-panel h3 {
-  margin: 0 0 0.55rem;
-  font-size: 1.15rem;
-}
-
-.alumni-list {
-  margin: 0;
-  padding-left: 1.2rem;
-  color: var(--ink-soft);
-  display: grid;
-  gap: 0.24rem;
-}
-
-.pub-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.85rem;
-}
-
-.pub-list li {
-  padding: 1rem;
-}
-
-.pub-citation {
-  margin: 0;
-}
-
-.pub-journal {
-  display: block;
-  margin-top: 0.25rem;
-  color: var(--ink-soft);
-  font-size: 0.94rem;
-}
-
-.pub-link {
-  margin-top: 0.55rem;
-  display: inline-block;
-  color: var(--accent-soft);
-  text-decoration-thickness: 2px;
-}
-
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.tool-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1rem;
-}
-
-.tool-card h3 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.tool-card p {
-  margin: 0.45rem 0 0;
-  color: var(--ink-soft);
-}
-
-.tool-link {
-  margin-top: 0.65rem;
-  display: inline-block;
-  color: var(--accent-soft);
-  text-decoration-thickness: 2px;
-}
-
-.news-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.news-item {
-  padding: 1rem;
-  display: grid;
-  gap: 0.3rem;
-}
-
-.news-date {
-  color: var(--brand-soft);
-  font-size: 0.84rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.news-text {
-  margin: 0;
-}
-
-.news-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 0.2rem;
-}
-
-.news-links a {
-  color: var(--accent-soft);
-  font-size: 0.92rem;
-  text-decoration-thickness: 2px;
-}
-
-.cta-section {
-  padding-top: 5.3rem;
-}
-
-.cta {
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle at 15% 10%, rgba(124, 92, 191, 0.18), transparent 45%),
-    radial-gradient(circle at 90% 100%, rgba(79, 142, 247, 0.15), transparent 35%),
-    #17151f;
-  box-shadow: var(--shadow);
-  padding: clamp(1.4rem, 4vw, 2.3rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.cta h2 {
-  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
-  margin-bottom: 0.5rem;
-}
-
-.cta p {
-  color: var(--ink-soft);
-  margin: 0;
-  max-width: 60ch;
-}
-
-.cta p a {
-  color: var(--accent-soft);
-  text-decoration-thickness: 2px;
-}
-
-.qr-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.qr-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1rem;
-}
-
-.qr-card h3 {
-  margin: 0;
-  font-size: 1.08rem;
-}
-
-.qr-card p {
-  margin: 0.42rem 0 0.9rem;
-  color: var(--ink-soft);
-}
-
-.qr-card p a {
-  color: var(--accent-soft);
-}
-
-.qr-card img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--card);
-  display: block;
-}
-
-.qr-actions {
-  margin-top: 0.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 2.4rem 0 2.8rem;
-  background: rgba(15, 15, 20, 0.9);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.55rem;
-}
-
-.footer-brand-image {
-  width: 100%;
-  max-width: 200px;
-  max-height: 90px;
-  height: auto;
-  display: block;
-}
-
-.footer-download {
-  padding: 0.4rem 0.75rem;
-  font-size: 0.78rem;
-  line-height: 1.1;
-}
-
-.footer-title {
-  margin: 0;
-  font-family: "Fraunces", "Times New Roman", serif;
-  font-size: 1.15rem;
-}
-
-.site-footer p {
-  margin: 0.2rem 0;
-  color: var(--ink-soft);
-}
-
-.site-footer a {
-  color: var(--accent-soft);
-}
-
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-.js .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.js .reveal.in-view {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 1280px) {
-  .ig-page {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 930px) {
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .menu-text {
-    font-size: 0.84rem;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: rgba(23, 21, 31, 0.98);
-    border-bottom: 1px solid var(--line);
-    padding: 0.85rem 4vw 1rem;
-    display: grid;
-    gap: 0.25rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-7px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .nav-links.open {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 0.5rem 0;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-graphic {
-    height: 320px;
-    max-width: 100%;
-    justify-self: stretch;
-  }
-
-  .research-grid,
-  .people-grid,
-  .tool-grid,
-  .qr-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .ig-page {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ig-nav {
-    width: 38px;
-    height: 38px;
-    font-size: 1.85rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .section {
-    padding: 4rem 0;
-  }
-
-  .stats-grid,
-  .research-grid,
-  .people-grid,
-  .tool-grid,
-  .qr-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ig-page {
-    grid-template-columns: 1fr;
-  }
-
-  .ig-nav {
-    width: 34px;
-    height: 34px;
-    font-size: 1.6rem;
-  }
-
-  .ig-nav-prev {
-    left: 0.45rem;
-  }
-
-  .ig-nav-next {
-    right: 0.45rem;
-  }
-
-  .pi-card {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-graphic {
-    height: 270px;
-  }
-
-  .cta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klein Lab at Yale (KLAY)</title>
+  <meta name="description" content="Klein Lab at Yale (KLAY): Modeling Biology, Molding Therapeutics.">
+  <link rel="icon" href="images/favicon_new.png" type="image/png">
+  <link rel="shortcut icon" href="images/favicon_new.png" type="image/png">
+  <meta property="og:title" content="Klein Lab at Yale (KLAY)">
+  <meta property="og:description" content="Modeling Biology, Molding Therapeutics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kleinlab-yale.github.io/">
+  <meta property="og:image" content="https://kleinlab-yale.github.io/images/klay_image.jpg">
+  <meta property="og:image:alt" content="KLAY website preview image">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Klein Lab at Yale (KLAY)">
+  <meta name="twitter:description" content="Modeling Biology, Molding Therapeutics.">
+  <meta name="twitter:image" content="https://kleinlab-yale.github.io/images/klay_image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260212-09">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <img class="brand-logo" src="images/klay_logo.png" alt="KLAY logo">
+        <span class="brand-text">Klein Lab at Yale</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-text">Menu</span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#instagram">Live</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#join">Collaborate</a></li>
+        <li><a href="#qrs">QRs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-lab-name reveal">
+          <img class="hero-welcome-logo" src="images/welcome_klay.png" alt="Welcome to the KLAY (Klein Lab at Yale)">
+        </div>
+        <div class="hero-copy reveal">
+          <h1>Modeling Biology, Molding Therapeutics.</h1>
+          <p class="lead">
+            At KLAY, we sculpt the structural foundations of cancer signaling and forge
+            biologic therapeutics for invasive disease.
+          </p>
+          <div class="hero-affiliations" aria-label="Affiliations">
+            <p>Yale Cancer Biology Institute (YCBI)</p>
+            <p>Yale Pharmacology Department</p>
+            <p>Yale Cancer Center</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="https://ycbi.yale.edu/" target="_blank" rel="noopener noreferrer">YCBI</a>
+            <a class="btn btn-secondary" href="https://medicine.yale.edu/pharm/" target="_blank" rel="noopener noreferrer">Pharm</a>
+            <a class="btn btn-secondary" href="https://medicine.yale.edu/cancer/" target="_blank" rel="noopener noreferrer">YCC</a>
+          </div>
+          <p class="visit-counter">
+            <img
+              class="visit-counter-badge"
+              src="https://hits.sh/kleinlab-yale.github.io.svg?style=flat-square&amp;label=Site%20Visits&amp;color=%23134e8f&amp;labelColor=%2310243e&amp;extraCount=19500"
+              alt="Site visits counter">
+          </p>
+        </div>
+        <div class="hero-graphic reveal">
+          <video class="hero-video" muted loop playsinline preload="metadata">
+            <source src="clay.mp4" type="video/mp4">
+          </video>
+          <button class="hero-audio-toggle" type="button" aria-pressed="false">Enable Audio</button>
+          <p class="hero-video-caption">STRUCTURE . SIGNALING . TRANSLATION</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section instagram-section" id="instagram">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Instagram</p>
+          <h2>From the Lab</h2>
+          <p>Live feed from @kleinlab.yale.</p>
+        </header>
+        <div class="ig-embed reveal" id="instagram-feed" aria-live="polite"></div>
+        <p class="ig-account reveal">
+          <a class="btn btn-secondary" href="https://www.instagram.com/kleinlab.yale/?hl=en" target="_blank" rel="noopener noreferrer">View Full Instagram Account</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Research</p>
+          <h2>Focus Areas</h2>
+          <p>Current directions highlighted from lab updates and active programs.</p>
+        </header>
+        <div class="research-grid">
+          <article class="research-card reveal">
+            <h3>Receptor Tyrosine Kinases (ROS1, ALK, ErbB3)</h3>
+            <p>We define how oncogenic receptor tyrosine kinases are structured, activated, and dysregulated in cancer, leveraging structure-guided approaches to develop next-generation therapeutic antibodies and biologics.</p>
+            <p class="research-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11743138/" target="_blank" rel="noopener noreferrer">ROS1 paper</a>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8639777/" target="_blank" rel="noopener noreferrer">ALK paper</a>
+            </p>
+          </article>
+          <article class="research-card reveal">
+            <h3>Metabolic Hormones (Isthmin-1 &amp; LEG1)</h3>
+            <p>We study Isthmin-1 and LEG1 as emerging metabolic regulators, uncovering their structures, receptors, and signaling mechanisms that couple nutrient status to cellular and organismal physiology.</p>
+            <p class="research-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12000326/" target="_blank" rel="noopener noreferrer">Isthmin-1 paper</a>
+            </p>
+          </article>
+          <article class="research-card reveal">
+            <h3>Cell Adhesion Receptors (MCAM &amp; Nectin-2)</h3>
+            <p>We define how cell adhesion receptors regulate migration, tumor&ndash;immune interactions, and metastatic progression. Through structural and mechanistic studies of MCAM and Nectin-2, we develop biologic therapeutics that modulate adhesion signaling in cancer.</p>
+          </article>
+          <article class="research-card reveal">
+            <h3>Ion Channel&ndash;Mediated Signaling in Cancer</h3>
+            <p>We determine how ion channel subunits (GABRP) adopt signaling functions independent of ion flux. Our work on GABA receptor architecture defines how structural rearrangements enable oncogenic signaling pathways and guide therapeutic intervention.</p>
+            <p class="research-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11698630/" target="_blank" rel="noopener noreferrer">GABRP paper</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="people">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">People</p>
+          <h2>Team</h2>
+          <p>Profiles and roles from Klein Lab at Yale.</p>
+        </header>
+        <article class="pi-card reveal">
+          <div class="pi-avatar" aria-hidden="true">DK</div>
+          <div>
+            <h3>Daryl Ewald Klein, MD, PhD</h3>
+            <p class="pi-role">Principal Investigator · Associate Professor of Pharmacology</p>
+            <p>
+              Member of the Yale Cancer Biology Institute (YCBI), Yale Pharmacology Department,
+              and Yale Cancer Center.
+            </p>
+            <div class="pi-links">
+              <a href="https://medicine.yale.edu/profile/daryl-klein/" target="_blank" rel="noopener noreferrer">Yale Medicine</a>
+              <a href="https://westcampus.yale.edu/klein-lab" target="_blank" rel="noopener noreferrer">Yale West Campus</a>
+              <a href="https://www.linkedin.com/in/daryl-ewald-klein-37562720/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://orcid.org/0000-0002-7188-0450" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <a href="https://scholar.google.com/citations?user=68S_TT8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            </div>
+          </div>
+        </article>
+        <div class="people-grid">
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">TL</div>
+            <h3>Tongqing Li, PhD</h3>
+            <p class="person-role">Research Scientist</p>
+            <a class="person-focus-link" href="https://medicine.yale.edu/profile/tongqing-li/" target="_blank" rel="noopener noreferrer">Yale School of Medicine profile</a>
+          </article>
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">HL</div>
+            <h3>Hengyi Li, PhD</h3>
+            <p class="person-role">Associate Research Scientist</p>
+            <a class="person-focus-link" href="https://medicine.yale.edu/profile/hengyi-li/" target="_blank" rel="noopener noreferrer">Yale School of Medicine profile</a>
+          </article>
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">PR</div>
+            <h3>Pouyan Rahmani</h3>
+            <p class="person-role">Research Associate (YCBI Coordinator)</p>
+            <a class="person-focus-link" href="https://medicine.yale.edu/profile/pouyan-rahmani/" target="_blank" rel="noopener noreferrer">Yale School of Medicine profile</a>
+          </article>
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">EK</div>
+            <h3>Elaine Kupec</h3>
+            <p class="person-role">Senior Administrative Assistant</p>
+            <a class="person-focus-link" href="https://medicine.yale.edu/profile/elaine-kupec/" target="_blank" rel="noopener noreferrer">Yale School of Medicine profile</a>
+          </article>
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">SA</div>
+            <h3>Sophia Alarcon-Frias</h3>
+            <p class="person-role">Researcher</p>
+            <a class="person-focus-link" href="https://www.umd.edu/" target="_blank" rel="noopener noreferrer">UMD-College Park</a>
+          </article>
+          <article class="person-card reveal">
+            <div class="person-avatar" aria-hidden="true">JS</div>
+            <h3>Jackson St. Aubyn</h3>
+            <p class="person-role">Yale Undergraduate Student</p>
+            <a class="person-focus-link" href="https://yalebulldogs.com/sports/football/roster/jackson-st--aubyn/22157" target="_blank" rel="noopener noreferrer">Yale student profile</a>
+          </article>
+        </div>
+        <article class="alumni-panel reveal" aria-labelledby="alumni-heading">
+          <h3 id="alumni-heading">Lab Alumni</h3>
+          <ul class="alumni-list">
+            <li>Olivia Belliveau (Undergrad, Yale College)</li>
+            <li>Leilani Fleming (Staples)</li>
+            <li>Jianan Zhang (Graduate Student)</li>
+            <li>Steve Stayrook (Research Scientist)</li>
+            <li>Yueyue Wang (Associate Research Scientist)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Publications</p>
+          <h2>Publication resources</h2>
+          <p>Browse complete and recent output from Klein Lab.</p>
+        </header>
+        <ol class="pub-list">
+          <li class="reveal">
+            <p class="pub-citation">Total Klein Lab publication list.</p>
+            <span class="pub-journal">PubMed (sorted by date)</span>
+            <a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=daryl+klein&amp;sort=date" target="_blank" rel="noopener noreferrer">View PubMed list</a>
+          </li>
+          <li class="reveal">
+            <p class="pub-citation">Daryl Ewald Klein publication profile.</p>
+            <span class="pub-journal">Google Scholar</span>
+            <a class="pub-link" href="https://scholar.google.com/citations?user=68S_TT8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">View Google Scholar</a>
+          </li>
+          <li class="reveal">
+            <p class="pub-citation">Nature Communications paper accepted (January 2026): structural basis for regulating ROS1 oncogene activity.</p>
+            <span class="pub-journal">Lab update</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="tools">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Tools</p>
+          <h2>Klein Lab developed tools</h2>
+          <p>Public resources released by the lab for the research community.</p>
+        </header>
+        <div class="tool-grid">
+          <article class="tool-card reveal">
+            <h3>Ewaldssphere</h3>
+            <p>Klein Lab Hugging Face resource hub.</p>
+            <a class="tool-link" href="https://huggingface.co/Ewaldssphere" target="_blank" rel="noopener noreferrer">Open Ewaldssphere</a>
+          </article>
+          <article class="tool-card reveal">
+            <h3>MIXA (Molecular Interaction Analysis)</h3>
+            <p>Interactive space for molecular interaction analysis.</p>
+            <a class="tool-link" href="https://huggingface.co/spaces/Ewaldssphere/MIXA_beta0.2" target="_blank" rel="noopener noreferrer">Open MIXA</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="news">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">News</p>
+          <h2>Updates</h2>
+          <p>Recent awards, publications, and translational milestones.</p>
+        </header>
+        <ul class="news-list">
+          <li class="news-item reveal">
+            <span class="news-date">February 2026</span>
+            <p class="news-text">Klein Lab receives a 2nd Blavatnik Award for developing ROS1 biologics to treat cancer, following a first-place prize in 2023.</p>
+            <div class="news-links">
+              <a href="https://ventures.yale.edu/news/yales-life-science-community-celebrates-innovation-2023-yale-life-science-pitchfest-4-yale" target="_blank" rel="noopener noreferrer">Award news</a>
+              <a href="https://ventures.yale.edu/yale-technologies/rosevix-rosziqumab-ros1-biologic-invasive-cancers" target="_blank" rel="noopener noreferrer">Original pitch</a>
+            </div>
+          </li>
+          <li class="news-item reveal">
+            <span class="news-date">January 2026</span>
+            <p class="news-text">Nature Communications paper accepted, describing the structural basis for regulating oncogene ROS1 activity.</p>
+          </li>
+          <li class="news-item reveal">
+            <span class="news-date">December 2025</span>
+            <p class="news-text">Klein Lab awarded the Golden Token by Connecticut Innovations and Yale Ventures to support the foundation of a newco spinout.</p>
+            <div class="news-links">
+              <a href="https://ventures.yale.edu/news/yale-life-science-pitchfest-2025-breaks-records-attendance-and-awards" target="_blank" rel="noopener noreferrer">Pitchfest 2025 announcement</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="join">
+      <div class="container cta reveal">
+        <div>
+          <p class="eyebrow">Collaborate</p>
+          <h2>Interested in working with KLAY?</h2>
+          <p>
+            For collaboration, speaking, and program inquiries, email
+            <a href="mailto:daryl.klein@yale.edu">daryl.klein@yale.edu</a>.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="mailto:daryl.klein@yale.edu">Email the Lab</a>
+      </div>
+    </section>
+
+    <section class="section section-alt qr-downloads" id="qrs">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Downloads</p>
+          <h2>QR Codes for Posters and Slides</h2>
+          <p>Download the official KLAY website and Instagram QR codes for use in presentations, posters, and flyers.</p>
+        </header>
+        <div class="qr-grid">
+          <article class="qr-card reveal">
+            <h3>KLAY Website</h3>
+            <p>Links to the Klein Lab at Yale homepage.</p>
+            <img src="images/KLAY_qr_modern_clean.png" alt="Klein Lab at Yale website QR code">
+            <div class="qr-actions">
+              <a class="btn btn-secondary" href="images/KLAY_qr_modern_clean.png" download>Download PNG</a>
+              <a class="btn btn-secondary" href="images/KLAY_qr_modern_clean.svg" download>Download SVG</a>
+            </div>
+          </article>
+          <article class="qr-card reveal">
+            <h3>KLAY Instagram</h3>
+            <p>Links to <a href="https://www.instagram.com/kleinlab.yale/?hl=en" target="_blank" rel="noopener noreferrer">@kleinlab.yale</a>.</p>
+            <img src="images/KLAY_instagram_qr_modern_clean.png" alt="Klein Lab at Yale Instagram QR code">
+            <div class="qr-actions">
+              <a class="btn btn-secondary" href="images/KLAY_instagram_qr_modern_clean.png" download>Download PNG</a>
+              <a class="btn btn-secondary" href="images/KLAY_instagram_qr_modern_clean.svg" download>Download SVG</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img class="footer-brand-image" src="images/logo_text_clear.png" alt="KLAY Klein Lab at Yale logo">
+        <a class="btn btn-secondary footer-download" href="images/logo_text_clear.png" download="logo_text_clear.png">Download PNG</a>
+      </div>
+      <div>
+        <p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Advanced+Biosciences+Center%2C+840+West+Campus+Drive%2C+West+Haven%2C+CT+06516" target="_blank" rel="noopener noreferrer">
+            Advanced Biosciences Center<br>
+            840 West Campus Drive<br>
+            West Haven, CT 06516
+          </a>
+        </p>
+        <p><a href="mailto:daryl.klein@yale.edu">daryl.klein@yale.edu</a></p>
+      </div>
+      <div>
+        <p>&copy; <span id="year"></span> Klein Lab. All rights reserved.</p>
+        <p><a href="https://westcampus.yale.edu/our-campus/visit" target="_blank" rel="noopener noreferrer">Directions to West Campus</a></p>
+        <p><a href="https://westcampus.yale.edu/klein-lab" target="_blank" rel="noopener noreferrer">Klein Lab at West Campus</a></p>
+        <p><a href="#top">Back to top</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="instagram_links.js?v=20260212-01"></script>
+  <script src="script.js?v=20260212-10"></script>
+</body>
+</html>
